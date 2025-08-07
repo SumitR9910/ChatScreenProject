@@ -1,8 +1,9 @@
-import { Image } from "expo-image";
 import { StyleSheet, Text, View } from "react-native";
+
+import { Image } from "expo-image";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-function CustomHeader() {
+function Header() {
   const { top } = useSafeAreaInsets();
 
   return (
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
   text: {
     user: {
       fontSize: 17,
-      fontFamily: "Inter",
+      fontFamily: "Inter-Variable",
       fontWeight: 500,
       color: "#000000",
       letterSpacing: 0.34,
@@ -87,4 +88,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CustomHeader;
+export default Header;
