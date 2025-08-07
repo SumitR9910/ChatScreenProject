@@ -3,10 +3,22 @@ import MessageMeta from "./MessageMeta/MessageMeta";
 
 import { StyleSheet, Text, View } from "react-native";
 
-function TextBubble({ message }) {
+function TextBubble({ message, received }) {
   return (
-    <View style={styles.container}>
-      <View style={styles.bubble}>
+    <View
+      style={[
+        styles.container,
+        received ? styles.container.received : styles.container.sent,
+      ]}
+    >
+      <View
+        style={[
+          styles.bubble,
+          received
+            ? { borderBottomLeftRadius: 0 }
+            : { borderBottomRightRadius: 0 },
+        ]}
+      >
         <Text style={styles.text.message}>{message}</Text>
 
         <MessageMeta />
@@ -23,15 +35,22 @@ function TextBubble({ message }) {
 
 const styles = StyleSheet.create({
   container: {
-    alignSelf: "flex-end",
     flexDirection: "row",
-    alignItems: "flex-end",
     gap: 4,
+    alignItems: "flex-end",
+
+    received: {
+      alignSelf: "flex-start",
+      flexDirection: "row-reverse",
+    },
+    sent: {
+      alignSelf: "flex-end",
+      flexDirection: "row",
+    },
   },
+
   bubble: {
     borderRadius: 16,
-
-    borderBottomRightRadius: 0,
 
     paddingVertical: 8,
     paddingHorizontal: 12,

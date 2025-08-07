@@ -16,7 +16,7 @@ import Animated, {
 
 const PADDING_FROM_EDGES = 20;
 
-const ItemSeparatorComponent = () => <View style={{ height: 10 }} />;
+const ItemSeparatorComponent = () => <View style={{ height: 28 }} />;
 
 function Index() {
   const { top, bottom } = useSafeAreaInsets();
@@ -47,7 +47,7 @@ function Index() {
             paddingHorizontal: 12,
           }}
           renderItem={({ item, index }) => (
-            <TextBubble message={item?.message} />
+            <TextBubble message={item?.message} received={item?.received} />
           )}
         />
       </Animated.View>
