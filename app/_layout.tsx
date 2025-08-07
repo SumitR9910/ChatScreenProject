@@ -4,7 +4,13 @@ import { Stack } from "expo-router";
 
 export default function RootLayout() {
   return (
-    <Stack>
+    <Stack
+      screenOptions={{
+        contentStyle: {
+          backgroundColor: "#FFFFFFEB",
+        },
+      }}
+    >
       <Stack.Screen
         options={{ headerShown: true, header: Header }}
         name="index"
