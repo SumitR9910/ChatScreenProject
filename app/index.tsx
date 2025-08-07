@@ -1,7 +1,10 @@
 import ActionBar from "../components/ActionBar/ActionBar";
+import TextBubble from "../components/ChatBubbles/TextBubble";
 import Header from "../components/Header";
 
-import { Text, View } from "react-native";
+import { dummyChatData } from "../data/dummyChatData";
+
+import { View } from "react-native";
 
 import { FlashList } from "@shopify/flash-list";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -21,8 +24,6 @@ function Index() {
   const HEADER_HEIGHT = 50 + PADDING_FROM_EDGES + top;
   const ACTION_BAR_HEIGHT = 40 + PADDING_FROM_EDGES + bottom; // //not final;
 
-  const data = Array.from({ length: 100 }, (_, i) => i + 1);
-
   const keyboard = useAnimatedKeyboard();
   const animatedStyles = useAnimatedStyle(() => ({
     transform: [{ translateY: -keyboard.height.value }],
@@ -33,20 +34,20 @@ function Index() {
       <Header />
       <Animated.View style={[{ flex: 1 }, animatedStyles]}>
         <FlashList
+          showsVerticalScrollIndicator={false}
           maintainVisibleContentPosition={{
             startRenderingFromBottom: true,
           }}
           ItemSeparatorComponent={ItemSeparatorComponent}
           keyboardDismissMode="on-drag"
-          data={data}
+          data={dummyChatData}
           contentContainerStyle={{
             paddingBottom: ACTION_BAR_HEIGHT,
             paddingTop: HEADER_HEIGHT,
+            paddingHorizontal: 12,
           }}
-          renderItem={({ _, index }) => (
-            <View style={{ width: 100, height: 100, backgroundColor: "red" }}>
-              <Text>{index}</Text>
-            </View>
+          renderItem={({ item, index }) => (
+            <TextBubble message={item?.message} />
           )}
         />
       </Animated.View>
