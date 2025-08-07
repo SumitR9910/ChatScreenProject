@@ -34,7 +34,14 @@ const styles = StyleSheet.create({
   container: {
     borderTopWidth: 1,
     borderTopColor: "#0000000C",
+
     backgroundColor: "#FFFFFFEB",
+
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1,
   },
 });
 

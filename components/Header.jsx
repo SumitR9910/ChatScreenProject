@@ -52,6 +52,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
 
     backgroundColor: "#FFFFFFEB",
+
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1,
   },
   icons: {
     width: 24,
