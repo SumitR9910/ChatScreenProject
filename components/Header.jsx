@@ -9,7 +9,10 @@ function Header() {
   const { top } = useSafeAreaInsets();
 
   return (
-    <BlurView intensity={50} style={[{ paddingTop: top }, styles.container]}>
+    <BlurView
+      intensity={50}
+      style={[{ paddingTop: top, height: 50 + top }, styles.container]}
+    >
       <View style={styles.icons}>
         <Image
           style={styles.icons.icon}
@@ -44,7 +47,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#0000000C",
 
-    height: 104,
     justifyContent: "space-between",
 
     paddingHorizontal: 16,
@@ -53,7 +55,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
 
-    backgroundColor: "#FFFFFFEB",
+    backgroundColor: "#FFFFFF97",
 
     position: "absolute",
     top: 0,
