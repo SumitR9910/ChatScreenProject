@@ -18,7 +18,11 @@ function Index() {
   return (
     <>
       <Animated.View style={[{ flex: 1 }, animatedStyles]}>
-        <FlatList data={data} renderItem={({ item }) => <Text>{item}</Text>} />
+        <FlatList
+          keyboardDismissMode="on-drag"
+          data={data}
+          renderItem={({ item }) => <Text>{item}</Text>}
+        />
       </Animated.View>
       <ActionBar />
     </>
