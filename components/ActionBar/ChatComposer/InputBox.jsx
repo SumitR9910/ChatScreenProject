@@ -38,6 +38,8 @@ const styles = StyleSheet.create({
     height: 36,
     paddingLeft: 12,
 
+    marginHorizontal: 6,
+
     fontFamily: "Inter-Variable",
     fontWeight: 400,
     fontSize: 16,
