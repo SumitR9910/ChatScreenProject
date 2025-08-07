@@ -1,5 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 
+import { BlurView } from "expo-blur";
+
 import { Image } from "expo-image";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -7,7 +9,7 @@ function Header() {
   const { top } = useSafeAreaInsets();
 
   return (
-    <View style={[{ paddingTop: top }, styles.container]}>
+    <BlurView intensity={50} style={[{ paddingTop: top }, styles.container]}>
       <View style={styles.icons}>
         <Image
           style={styles.icons.icon}
@@ -33,7 +35,7 @@ function Header() {
           tintColor="#858585"
         />
       </View>
-    </View>
+    </BlurView>
   );
 }
 
@@ -59,6 +61,7 @@ const styles = StyleSheet.create({
     right: 0,
     zIndex: 1,
   },
+
   icons: {
     width: 24,
     height: 24,
@@ -68,11 +71,13 @@ const styles = StyleSheet.create({
       height: "100%",
     },
   },
+
   user: {
     flexDirection: "row",
     alignItems: "center",
     gap: 8,
   },
+
   profileImage: {
     width: 24,
     height: 24,

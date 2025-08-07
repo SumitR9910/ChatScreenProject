@@ -1,3 +1,4 @@
+import { BlurView } from "expo-blur";
 import ChatComposer from "./ChatComposer/ChatComposer";
 
 import { StyleSheet } from "react-native";
@@ -25,6 +26,7 @@ function ActionBar() {
         styles.container,
       ]}
     >
+      <BlurView intensity={50} style={styles.blurView} />
       <ChatComposer />
     </Animated.View>
   );
@@ -42,6 +44,14 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     zIndex: 1,
+  },
+
+  blurView: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
 });
 
