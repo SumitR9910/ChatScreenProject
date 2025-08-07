@@ -1,15 +1,32 @@
 import ChatComposer from "./ChatComposer/ChatComposer";
 
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
+import Animated, {
+  useAnimatedKeyboard,
+  useAnimatedStyle,
+} from "react-native-reanimated";
+
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 function ActionBar() {
   const { bottom } = useSafeAreaInsets();
 
+  const keyboard = useAnimatedKeyboard();
+
+  const animatedStyles = useAnimatedStyle(() => ({
+    transform: [{ translateY: -keyboard.height.value }],
+  }));
+
   return (
-    <View style={[{ paddingBottom: bottom }, styles.container]}>
+    <Animated.View
+      style={[
+        { paddingBottom: bottom, zIndex: -1 },
+        animatedStyles,
+        styles.container,
+      ]}
+    >
       <ChatComposer />
-    </View>
+    </Animated.View>
   );
 }
 
@@ -17,6 +34,7 @@ const styles = StyleSheet.create({
   container: {
     borderTopWidth: 1,
     borderTopColor: "#0000000C",
+    backgroundColor: "#FFFFFFEB",
   },
 });
 
