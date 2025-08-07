@@ -7,7 +7,6 @@ function MicButton() {
       <Image
         style={styles.icons.icon}
         source={require("../../../assets/icons/mic.svg")}
-        tintColor="#00000090"
       />
     </View>
   );

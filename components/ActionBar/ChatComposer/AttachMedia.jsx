@@ -4,15 +4,9 @@ import { StyleSheet, View } from "react-native";
 function AttachMedia() {
   return (
     <View style={styles.container}>
-      <IconContainer
-        tintColor="#00000090"
-        icon={require("../../../assets/icons/attach.svg")}
-      />
+      <IconContainer icon={require("../../../assets/icons/attach.svg")} />
 
-      <IconContainer
-        tintColor="#00000090"
-        icon={require("../../../assets/icons/attach-image.svg")}
-      />
+      <IconContainer icon={require("../../../assets/icons/attach-image.svg")} />
     </View>
   );
 }
