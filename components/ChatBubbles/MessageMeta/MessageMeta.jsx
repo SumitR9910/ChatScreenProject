@@ -1,10 +1,10 @@
 import { StyleSheet, View } from "react-native";
 import Timing from "./Timing";
 
-function MessageInfo({ time }) {
+function MessageInfo({ time, received }) {
   return (
     <View style={styles.container}>
-      <Timing time={time} />
+      <Timing time={time} received={received} />
     </View>
   );
 }

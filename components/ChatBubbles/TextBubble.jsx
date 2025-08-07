@@ -3,7 +3,18 @@ import MessageMeta from "./MessageMeta/MessageMeta";
 
 import { StyleSheet, Text, View } from "react-native";
 
-function TextBubble({ message, received, time }) {
+const COLOR = {
+  user: {
+    background: "#1B88D8",
+    text: "#FFFFFF",
+  },
+  community: {
+    background: "#5D47E2",
+    text: "#FFFFFF",
+  },
+};
+
+function TextBubble({ message, received, time, receivedSource }) {
   return (
     <View
       style={[
@@ -14,14 +25,28 @@ function TextBubble({ message, received, time }) {
       <View
         style={[
           styles.bubble,
+          {
+            backgroundColor: received
+              ? COLOR[receivedSource]?.background
+              : "#F3F3F3",
+          },
           received
             ? { borderBottomLeftRadius: 0 }
             : { borderBottomRightRadius: 0 },
         ]}
       >
-        <Text style={styles.text.message}>{message}</Text>
+        <Text
+          style={[
+            styles.text.message,
+            {
+              color: received ? COLOR[receivedSource]?.text : "#171717",
+            },
+          ]}
+        >
+          {message}
+        </Text>
 
-        <MessageMeta time={time} />
+        <MessageMeta time={time} received={received} />
       </View>
 
       <Avatar
@@ -55,8 +80,6 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 12,
 
-    backgroundColor: "#F3F3F3",
-
     maxWidth: "85%",
   },
   text: {
@@ -65,7 +88,6 @@ const styles = StyleSheet.create({
       fontSize: 16,
       letterSpacing: 0.16,
       lineHeight: 22.4,
-      color: "#171717",
     },
   },
 });

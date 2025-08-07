@@ -17,7 +17,24 @@ import Animated, {
 const PADDING_FROM_EDGES = 20;
 
 const ItemSeparatorComponent = () => <View style={{ height: 28 }} />;
+const renderItem = ({ item }) => {
+  const commonProps = {
+    message: item?.message,
+    time: item?.time,
+  };
 
+  if (item?.received) {
+    return (
+      <TextBubble
+        {...{ ...commonProps, receivedSource: item?.source, received: true }}
+      />
+    );
+  }
+
+  if (!item?.received) {
+    return <TextBubble {...{ ...commonProps, received: false }} />;
+  }
+};
 function Index() {
   const { top, bottom } = useSafeAreaInsets();
 
@@ -46,13 +63,7 @@ function Index() {
             paddingTop: HEADER_HEIGHT,
             paddingHorizontal: 12,
           }}
-          renderItem={({ item, index }) => (
-            <TextBubble
-              message={item?.message}
-              received={item?.received}
-              time={item?.time}
-            />
-          )}
+          renderItem={renderItem}
         />
       </Animated.View>
       <ActionBar />
