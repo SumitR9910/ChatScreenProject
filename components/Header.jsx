@@ -17,7 +17,6 @@ function Header() {
         <Image
           style={styles.icons.icon}
           source={require("../assets/icons/chevron-left.svg")}
-          tintColor="#858585"
         />
       </View>
 
@@ -35,7 +34,6 @@ function Header() {
         <Image
           style={styles.icons.icon}
           source={require("../assets/icons/overflow.svg")}
-          tintColor="#858585"
         />
       </View>
     </BlurView>
