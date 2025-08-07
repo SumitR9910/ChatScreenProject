@@ -1,5 +1,5 @@
 import ActionBar from "../components/ActionBar/ActionBar";
-import TextBubble from "../components/ChatBubbles/TextBubble";
+import ChatGroup from "../components/ChatGroup/ChatGroup.jsx";
 import Header from "../components/Header";
 
 import { dummyChatData } from "../data/dummyChatData";
@@ -17,24 +17,8 @@ import Animated, {
 const PADDING_FROM_EDGES = 20;
 
 const ItemSeparatorComponent = () => <View style={{ height: 28 }} />;
-const renderItem = ({ item }) => {
-  const commonProps = {
-    message: item?.message,
-    time: item?.time,
-  };
+const renderItem = ({ item }) => <ChatGroup data={item} />;
 
-  if (item?.received) {
-    return (
-      <TextBubble
-        {...{ ...commonProps, receivedSource: item?.source, received: true }}
-      />
-    );
-  }
-
-  if (!item?.received) {
-    return <TextBubble {...{ ...commonProps, received: false }} />;
-  }
-};
 function Index() {
   const { top, bottom } = useSafeAreaInsets();
 

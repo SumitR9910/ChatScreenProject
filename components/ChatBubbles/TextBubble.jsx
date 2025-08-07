@@ -14,7 +14,19 @@ const COLOR = {
   },
 };
 
-function TextBubble({ message, received, time, receivedSource }) {
+function TextBubble({ message, received, time, receivedSource, lastNode }) {
+  const bubbleStyles = [
+    {
+      borderRadius: 16,
+      backgroundColor: received ? COLOR[receivedSource]?.background : "#F3F3F3",
+    },
+    !lastNode && (received ? { marginLeft: 24 } : { marginRight: 24 }),
+    lastNode &&
+      (received
+        ? { borderBottomLeftRadius: 0 }
+        : { borderBottomRightRadius: 0 }),
+  ];
+
   return (
     <View
       style={[
@@ -22,19 +34,7 @@ function TextBubble({ message, received, time, receivedSource }) {
         received ? styles.container.received : styles.container.sent,
       ]}
     >
-      <View
-        style={[
-          styles.bubble,
-          {
-            backgroundColor: received
-              ? COLOR[receivedSource]?.background
-              : "#F3F3F3",
-          },
-          received
-            ? { borderBottomLeftRadius: 0 }
-            : { borderBottomRightRadius: 0 },
-        ]}
-      >
+      <View style={[styles.bubble, ...bubbleStyles, {}]}>
         <Text
           style={[
             styles.text.message,
@@ -49,11 +49,13 @@ function TextBubble({ message, received, time, receivedSource }) {
         <MessageMeta time={time} received={received} />
       </View>
 
-      <Avatar
-        uri={
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXL0ELYhzoww8syHt3qx87yK1GgVaOm8FqAZ6vwE406cGm7bX8Okr5ztheid3HDfRUxYs&usqp=CAU"
-        }
-      />
+      {lastNode && (
+        <Avatar
+          uri={
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXL0ELYhzoww8syHt3qx87yK1GgVaOm8FqAZ6vwE406cGm7bX8Okr5ztheid3HDfRUxYs&usqp=CAU"
+          }
+        />
+      )}
     </View>
   );
 }
@@ -80,7 +82,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 12,
 
-    maxWidth: "85%",
+    maxWidth: "80%",
   },
   text: {
     message: {
