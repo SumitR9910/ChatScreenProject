@@ -15,7 +15,6 @@ function ActionBar() {
 
 const styles = StyleSheet.create({
   container: {
-    height: 200,
     borderTopWidth: 1,
     borderTopColor: "#0000000C",
   },
