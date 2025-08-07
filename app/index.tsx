@@ -47,7 +47,11 @@ function Index() {
             paddingHorizontal: 12,
           }}
           renderItem={({ item, index }) => (
-            <TextBubble message={item?.message} received={item?.received} />
+            <TextBubble
+              message={item?.message}
+              received={item?.received}
+              time={item?.time}
+            />
           )}
         />
       </Animated.View>

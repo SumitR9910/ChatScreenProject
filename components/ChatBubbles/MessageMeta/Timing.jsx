@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from "react-native";
 
-function Timing() {
+function Timing({ time }) {
   return (
     <View>
-      <Text style={styles.text}>11:59 AM</Text>
+      <Text style={styles.text}>{time}</Text>
     </View>
   );
 }

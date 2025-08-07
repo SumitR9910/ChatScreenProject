@@ -3,7 +3,7 @@ import MessageMeta from "./MessageMeta/MessageMeta";
 
 import { StyleSheet, Text, View } from "react-native";
 
-function TextBubble({ message, received }) {
+function TextBubble({ message, received, time }) {
   return (
     <View
       style={[
@@ -21,7 +21,7 @@ function TextBubble({ message, received }) {
       >
         <Text style={styles.text.message}>{message}</Text>
 
-        <MessageMeta />
+        <MessageMeta time={time} />
       </View>
 
       <Avatar
