@@ -93,8 +93,7 @@ const styles = StyleSheet.create({
   text: {
     user: {
       fontSize: 17,
-      fontFamily: "Inter-Variable",
-      fontWeight: 500,
+      fontFamily: "Inter-Medium",
       color: "#000000",
       letterSpacing: 0.34,
     },

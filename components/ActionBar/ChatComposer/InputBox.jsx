@@ -40,8 +40,7 @@ const styles = StyleSheet.create({
 
     marginHorizontal: 6,
 
-    fontFamily: "Inter-Variable",
-    fontWeight: 400,
+    fontFamily: "Inter-Regular",
     fontSize: 16,
     color: "#171717",
 
