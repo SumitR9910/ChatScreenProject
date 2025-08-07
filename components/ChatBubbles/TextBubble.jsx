@@ -1,4 +1,5 @@
 import Avatar from "./Avatar";
+import MessageMeta from "./MessageMeta/MessageMeta";
 
 import { StyleSheet, Text, View } from "react-native";
 
@@ -7,6 +8,8 @@ function TextBubble({ message }) {
     <View style={styles.container}>
       <View style={styles.bubble}>
         <Text style={styles.text.message}>{message}</Text>
+
+        <MessageMeta />
       </View>
 
       <Avatar
