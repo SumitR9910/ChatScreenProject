@@ -20,7 +20,7 @@ function TextBubble({ message, received, time, receivedSource, lastNode }) {
       borderRadius: 16,
       backgroundColor: received ? COLOR[receivedSource]?.background : "#F3F3F3",
     },
-    !lastNode && (received ? { marginLeft: 24 } : { marginRight: 24 }),
+    !lastNode && (received ? { marginLeft: 28 } : { marginRight: 28 }),
     lastNode &&
       (received
         ? { borderBottomLeftRadius: 0 }
